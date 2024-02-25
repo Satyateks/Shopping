@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:satyashopping/core/app_export.dart';
+import 'package:satyashopping/presentation/my_profile_screen/my_profile_screen.dart';
 import 'package:satyashopping/presentation/my_profile_settings_screen/my_profile_settings_screen.dart';
 import 'package:satyashopping/widgets/app_bar/appbar_leading_image.dart';
 import 'package:satyashopping/widgets/app_bar/custom_app_bar.dart';
@@ -58,7 +59,7 @@ class _SignUpPageScreenState extends State<SignUpPageScreen> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    MyProfileSettingsScreen())),
+                                                    MyProfileScreen())),
                                         child: Text('bag')),
                                     Text("Sign up",
                                         style: theme.textTheme.displaySmall)

@@ -35,36 +35,27 @@ class ReviewwithphotoslistItemWidget extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Padding(
                       padding: EdgeInsets.only(left: 24.h),
-                      child: Text(
-                        "Kim Shine",
-                        style: CustomTextStyles.titleSmallSemiBold,
-                      ),
+                      child: Text("Kim Shine",
+                          style: CustomTextStyles.titleSmallSemiBold),
                     ),
                   ),
                   SizedBox(height: 6.v),
                   Align(
                     alignment: Alignment.center,
                     child: Padding(
-                      padding: EdgeInsets.only(
-                        left: 23.h,
-                        right: 18.h,
-                      ),
+                      padding: EdgeInsets.only(left: 23.h, right: 18.h),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
                             padding: EdgeInsets.only(bottom: 1.v),
                             child: CustomRatingBar(
-                              ignoreGestures: true,
-                              initialRating: 0,
-                            ),
+                                ignoreGestures: true, initialRating: 0),
                           ),
                           Padding(
                             padding: EdgeInsets.only(top: 4.v),
-                            child: Text(
-                              "August 13, 2019",
-                              style: CustomTextStyles.bodySmall11,
-                            ),
+                            child: Text("August 13, 2019",
+                                style: CustomTextStyles.bodySmall11),
                           ),
                         ],
                       ),
@@ -85,14 +76,11 @@ class ReviewwithphotoslistItemWidget extends StatelessWidget {
                               width: 260.h,
                               margin: EdgeInsets.only(left: 2.h),
                               child: Text(
-                                "I loved this dress so much as soon as I tried it on I knew I had to buy it in another color. I am 5'3 about 155lbs and I carry all my weight in my upper body. When I put it on I felt like it thinned me put and I got so many compliments.",
-                                maxLines: 7,
-                                overflow: TextOverflow.ellipsis,
-                                style:
-                                    CustomTextStyles.bodyMediumGray900.copyWith(
-                                  height: 1.50,
-                                ),
-                              ),
+                                  "I loved this dress so much as soon as I tried it on I knew I had to buy it in another color. I am 5'3 about 155lbs and I carry all my weight in my upper body. When I put it on I felt like it thinned me put and I got so many compliments.",
+                                  maxLines: 7,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: CustomTextStyles.bodyMediumGray900
+                                      .copyWith(height: 1.50)),
                             ),
                           ),
                         ),
@@ -108,26 +96,20 @@ class ReviewwithphotoslistItemWidget extends StatelessWidget {
                                   imagePath: ImageConstant.imgImage2104x104,
                                   height: 104.adaptSize,
                                   width: 104.adaptSize,
-                                  radius: BorderRadius.circular(
-                                    4.h,
-                                  ),
+                                  radius: BorderRadius.circular(4.h),
                                   margin: EdgeInsets.only(left: 2.h),
                                 ),
                                 CustomImageView(
                                   imagePath: ImageConstant.imgImage12,
                                   height: 104.adaptSize,
                                   width: 104.adaptSize,
-                                  radius: BorderRadius.circular(
-                                    4.h,
-                                  ),
+                                  radius: BorderRadius.circular(4.h),
                                 ),
                                 CustomImageView(
                                   imagePath: ImageConstant.imgImage104x47,
                                   height: 104.v,
                                   width: 47.h,
-                                  radius: BorderRadius.circular(
-                                    4.h,
-                                  ),
+                                  radius: BorderRadius.circular(4.h),
                                 ),
                               ],
                             ),
