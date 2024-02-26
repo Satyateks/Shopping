@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:satyashopping/core/app_export.dart';
 import 'package:satyashopping/presentation/my_profile_screen/my_profile_screen.dart';
-import 'package:satyashopping/presentation/my_profile_settings_screen/my_profile_settings_screen.dart';
 import 'package:satyashopping/widgets/app_bar/appbar_leading_image.dart';
 import 'package:satyashopping/widgets/app_bar/custom_app_bar.dart';
 import 'package:satyashopping/widgets/custom_elevated_button.dart';
@@ -13,7 +12,6 @@ import '../main_two_screen/main_two_screen.dart';
 // ignore_for_file: must_be_immutable
 class SignUpPageScreen extends StatefulWidget {
   const SignUpPageScreen({Key? key}) : super(key: key);
-
   @override
   State<SignUpPageScreen> createState() => _SignUpPageScreenState();
 }
