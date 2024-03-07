@@ -1,4 +1,10 @@
+// ignore_for_file: unused_field
+
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:satyashopping/core/app_export.dart';
 import 'package:satyashopping/widgets/app_bar/appbar_leading_image.dart';
 import 'package:satyashopping/widgets/app_bar/appbar_title.dart';
@@ -17,6 +23,43 @@ class VisualSearchScreen extends StatefulWidget {
 }
 
 class _VisualSearchScreenState extends State<VisualSearchScreen> {
+  File? _image;
+
+  final picker = ImagePicker();
+
+  Future getImageFromCamera() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.camera);
+
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+        // Get.to(VisualSearchTakingAPhotoScreen());
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => VisualSearchTakingAPhotoScreen()));
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
+
+  Future getImageFromGallery() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => VisualSearchCropTheItemScreen()));
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,14 +67,22 @@ class _VisualSearchScreenState extends State<VisualSearchScreen> {
             backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
             appBar: _buildAppBar(context),
             body: SizedBox(
-                height: 724.v,
+                height: 727.v,
                 width: double.maxFinite,
                 child: Stack(alignment: Alignment.topCenter, children: [
-                  CustomImageView(
-                      imagePath: ImageConstant.imgImage,
-                      height: 724.v,
-                      width: 375.h,
-                      alignment: Alignment.center),
+                  _image != null
+                      ? Image.file(
+                          _image!,
+                          height: 724.v,
+                          width: 399.h,
+                          // alignment: Alignment.center,
+                        )
+                      : CustomImageView(
+                          imagePath: ImageConstant.imgImage,
+                          height: 724.v,
+                          width: 375.h,
+                          alignment: Alignment.center,
+                        ),
                   _buildTakeAPhoto(context)
                 ]))));
   }
@@ -73,21 +124,13 @@ class _VisualSearchScreenState extends State<VisualSearchScreen> {
                   SizedBox(height: 26.v),
                   CustomElevatedButton(
                     text: "TAKE A PHOTO",
-                    onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                VisualSearchTakingAPhotoScreen())),
+                    onPressed: () => getImageFromCamera(),
                   ),
                   SizedBox(height: 16.v),
                   CustomOutlinedButton(
                       height: 48.v,
                       text: "UPLOAD AN IMAGE",
-                      onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  VisualSearchCropTheItemScreen())),
+                      onPressed: () => getImageFromGallery(),
                       buttonStyle: CustomButtonStyles.outlineOnPrimary,
                       buttonTextStyle: CustomTextStyles.titleSmallOnPrimary_1)
                 ])));

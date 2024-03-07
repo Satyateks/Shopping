@@ -96,8 +96,8 @@ class CustomImageView extends StatelessWidget {
               height: height,
               width: width,
               fit: fit ?? BoxFit.contain,
-              colorFilter:
-                  ColorFilter.mode(color ?? Colors.transparent, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(
+                  color ?? Colors.transparent, BlendMode.srcIn),
             ),
           );
         case ImageType.file:
